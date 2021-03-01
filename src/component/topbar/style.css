@@ -1,0 +1,19 @@
+.heading{
+    font-size: 40px;
+    font-family: emoji;
+    font-weight: bolder;
+    display: inline-block;
+    width:400px;
+    position: relative;
+    bottom:350px;
+    right: 190px;
+}
+
+.shopbutton{
+    position: relative!important;
+    bottom:200px;
+    left: 266px;
+    background-color: cadetblue;
+    color:beige;
+    font-size: 16px;
+}
