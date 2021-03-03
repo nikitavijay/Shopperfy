@@ -9,9 +9,6 @@ const Contact = props => {
   const [message, setMessage] = useState('')
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(name)
-    console.log(email)
-    console.log(message)
     let templateParams = {
         from_name: name,
         from_email:email,
@@ -26,6 +23,9 @@ const Contact = props => {
         console.log('FAILED...', error)
       }
     )
+    setName('')
+    setEmail('')
+    setMessage('')
   }
   return (
     <div style={{ backgroundColor: 'coral' }}>
