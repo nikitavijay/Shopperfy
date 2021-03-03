@@ -39,8 +39,8 @@ const Women = () => {
       setData(origData)
     }
     else {
-      const ab = origData.filter((item) => item.name.includes(value))
-      setData(ab)
+      const ab = origData.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()))
+      setData([...ab])
     }
   }
 
@@ -48,9 +48,8 @@ const Women = () => {
     switch (no) {
       case "1": {
         const dataArray = [ ...data]
-        const ab = dataArray.sort(function (a, b) { return ( a.name < b.name )?-1:1 })
-
-        setData(ab)
+        const ab = data.sort(function (a, b) { return ( a.name < b.name )?-1:1 })
+        setData([...ab])
         break;
       }
       case "2": {

@@ -39,8 +39,8 @@ const query = menquery.replace('menquery','query')
       setData(origData)
     }
     else {
-      const ab = origData.filter((item) => item.name.includes(value))
-      setData(ab)
+      const ab = origData.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()))
+      setData([...ab])
     }
   }
 
