@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../navbar'
 import emailjs from 'emailjs-com'
-
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 const Contact = props => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -25,6 +26,15 @@ const Contact = props => {
     setName('')
     setEmail('')
     setMessage('')
+    toast.dark('Query Submitted Successfully', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
   }
   return (
     <div style={{ backgroundColor: 'coral' }}>
@@ -136,6 +146,19 @@ const Contact = props => {
           </form>
         </span>
       </div>
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+{/* Same as */}
+<ToastContainer />
     </div>
   )
 }
