@@ -4,7 +4,6 @@ import StarIcon from '@material-ui/icons/Star';
 import SearchIcon from '@material-ui/icons/Search';
 import NavBar from '../navbar'
 const Search = (props) => {
-    console.log(props)
 const query = searchquery.replace('searchquery','query');
   const [datas, setData] = useState([]);
   const [origData, setOrigData] = useState(null);
@@ -33,10 +32,8 @@ const query = searchquery.replace('searchquery','query');
         setOrigData(data)
       });
   }, []);
-console.log(datas)
   const filterFunction = (value) => {
     setFilterText(value)
-    console.log(value)
     if (value == "") {
       setData(origData)
     }
@@ -76,7 +73,6 @@ console.log(datas)
     }
   }
   const ab = () => {
-    console.log("hi")
   }
   return (
     <div>

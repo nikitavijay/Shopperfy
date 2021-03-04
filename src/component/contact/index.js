@@ -3,7 +3,6 @@ import Navbar from '../navbar'
 import emailjs from 'emailjs-com'
 
 const Contact = props => {
-  console.log(props)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')

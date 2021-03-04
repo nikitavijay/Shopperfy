@@ -2,11 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { query } from '../../queryConstants';
 import StarIcon from '@material-ui/icons/Star';
 import './featured.css'
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from 'react-redux'
+
 const Featured = () => {
   const [data, setData] = useState(null);
   const [origData, setOrigData] = useState(null);
-
+const dispatch=useDispatch()
   const [filterText, setFilterText] = useState('')
+  const addFunction = item => {
+    var action = {
+      type: 'ADDITEM',
+      payload: item
+    }
+    dispatch(action)
+    toast.success('Added to Cart Successfully', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
   useEffect(() => {
     window
       .fetch(`https://graphql.contentful.com/content/v1/spaces/711srt0otdpx/`, {
@@ -46,12 +66,25 @@ const Featured = () => {
                 <span className="pricestyle">${item.price}</span>
               </div>
               <div style={{ textAlign: "center" }}>
-                <a href="#" className="btn btn-primary buttonstyle">BUY NOW</a>
+                <a href="#" className="btn btn-primary buttonstyle" onClick={()=>{addFunction(item)}}>ADD TO CART</a>
               </div>
             </div>
           </div>
         })
       }
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+{/* Same as */}
+<ToastContainer />
     </div>
     );
 };
